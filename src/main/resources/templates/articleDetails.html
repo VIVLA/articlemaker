@@ -1,0 +1,29 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" class="h-100">
+<head th:replace="common/head::head" />
+<body class="d-flex flex-column h-100">
+<main>
+    <header th:replace="common/header::header" />
+    <article th:each="el: ${article}" class="container">
+        <div class="blog-post">
+            <h2 class="blog-post-title" th:text="${el.title}"></h2>
+            <p th:utext="${el.text}"></p>
+        </div>
+        <div style="overflow: hidden;">
+            <div style="width: 100%;">
+                <div style="float: left; width: 100px; height: 100px;">
+                    <a th:href="${el.id} + '/edit'" class="btn btn-success">Edit</a>
+                </div>
+                <div style="float: left; width: 100px; height: 100px;">
+                    <form method="post">
+                        <button type="submit" class="btn btn-warning">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </article>
+    <footer th:replace="common/footer::footer" />
+</main>
+</body>
+</html>

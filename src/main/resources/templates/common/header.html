@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<header th:fragment="header">
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+                <span class="fs-4">Vivla</span>
+            </a>
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a href="/home"
+                       th:class="${#strings.contains(#httpServletRequest.requestURI, '/home')} ?
+                       'nav-link active' : 'nav-link'">
+                        Home</a></li>
+                <li class="nav-item">
+                    <a href="/articles"
+                       th:class="${#strings.contains(#httpServletRequest.requestURI, '/articles')} ?
+                       'nav-link active' : 'nav-link'">Articles</a></li>
+                <li class="nav-item">
+                    <a href="/add"
+                       th:class="${#strings.contains(#httpServletRequest.requestURI, '/add')} ?
+                       'nav-link active' : 'nav-link'">Add article</a></li>
+                <li class="nav-item">
+                    <a href="/about"
+                       th:class="${#strings.contains(#httpServletRequest.requestURI, '/about')} ?
+                       'nav-link active' : 'nav-link'">About</a></li>
+            </ul>
+        </header>
+    </div>
+</header>

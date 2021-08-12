@@ -1,0 +1,37 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" class="h-100">
+<div th:insert="common/head::head" />
+<body class="d-flex flex-column h-100">
+    <main>
+        <header th:replace="common/header::header"></header>
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <p class="lead text-muted">Here you can add some article, just copy something and paste</p>
+                <form action="/add" method="post">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Title</span>
+                        <input type="text" class="form-control" name="title"
+                               placeholder="Add here title of your article"
+                               required autofocus
+                               aria-label="title">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Short</span>
+                        <input type="text" class="form-control" name="anons"
+                               placeholder="Add here anons of your article"
+                               required
+                               aria-label="title">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Text</span>
+                        <textarea class="form-control" name="text" placeholder="Add full article text here" type="text" cols="20" rows="10"></textarea>
+                    </div><br>
+                    <button type="submit" class="btn btn-info">Add</button>
+                </form>
+            </div>
+        </section>
+    <footer th:replace="common/footer::footer" />
+    </main>
+</body>
+</html>

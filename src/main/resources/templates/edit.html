@@ -1,0 +1,34 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" class="h-100">
+<div th:insert="common/head::head" />
+<body class="d-flex flex-column h-100">
+<main>
+    <header th:replace="common/header::header"></header>
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5" th:each="el : ${editingArticle}">
+            <p class="lead text-muted">Here you can edit your article.</p>
+            <form th:action="'/articleDetails/' + ${el.id} + '/edit'" method="post" >
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Title</span>
+                    <input type="text" class="form-control" name="title"
+                           th:value="${el.title}"
+                           autofocus>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Short</span>
+                    <input type="text" class="form-control" name="anons"
+                           th:value="${el.anons}">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Text</span>
+                    <textarea class="form-control" name="text" th:utext="${el.text}" type="text" rows="10"></textarea>
+                </div><br>
+                <button type="submit" class="btn btn-info">Done</button>
+            </form>
+        </div>
+    </section>
+    <footer th:replace="common/footer::footer" />
+</main>
+</body>
+</html>
